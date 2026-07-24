@@ -66,3 +66,6 @@ class HackathonPayments(models.Model):
     
     class Meta:
         db_table = 'hackathon_payments'
+
+
+from django.db import models
