@@ -16,3 +16,10 @@ def get_client_ip(request):
     else:
         ip = request.META.get('REMOTE_ADDR')
     return ip
+
+
+def generate_otp(length=6):
+    """Generates a random numeric OTP of specified length."""
+    digits = string.digits
+    otp = ''.join(random.choices(digits, k=length))
+    return otp

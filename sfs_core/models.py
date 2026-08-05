@@ -1,18 +1,25 @@
 from django.db import models
+from django.contrib.auth.models import AbstractBaseUser, UserManager
 
-class AllUsers(models.Model):
+class AllUsers(AbstractBaseUser):
+    username = models.CharField(max_length=50, unique=True)
     name = models.CharField(max_length=50)
-    email = models.CharField(max_length=50)
-    password = models.CharField(max_length=35)
-    profile = models.CharField(max_length=50)
+    lastname = models.CharField(max_length=50, blank=True)
+    email = models.EmailField(max_length=50, unique=True)
+    profile = models.CharField(max_length=500, default="profile.webp")
     user_type = models.CharField(max_length=5, default="user")
     platform = models.CharField(max_length=10)
     platform_name = models.CharField(max_length=50)
     type = models.CharField(max_length=10)
-    user_id = models.CharField(unique=True, max_length=50)
-    status = models.CharField(max_length=20)
+    user_id = models.CharField(max_length=50, unique=True)
+    status = models.CharField(max_length=20, default="approved")
     ip = models.CharField(max_length=50)
-    time = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = ["username", "name"]
+
+    objects = UserManager()
 
     class Meta:
         managed = True
