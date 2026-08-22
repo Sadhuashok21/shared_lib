@@ -32,6 +32,7 @@ class TotalActivity(models.Model):
 class AllErrors(models.Model):
     error_id = models.CharField(max_length=50)
     error_msg = models.TextField()
+    error_code = models.IntegerField(default=200)
     user_id = models.CharField(max_length=40)
     ip = models.CharField(max_length=50)
     activity = models.TextField()

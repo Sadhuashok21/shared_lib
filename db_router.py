@@ -10,6 +10,7 @@ class AppDatabaseRouter:
         'krishi': 'krishi',
         'aaaab': 'aaaab',
         'aaaaa': 'aaaaa',
+
     }
 
     def db_for_read(self, model, **hints):
