@@ -28,15 +28,12 @@ def insert_activity(ip, version, activity_id, user_id="anonymous"):
         time = timezone.now()
         )
     
-    print("executed")
+    print("Executed: ", activity_id)
     
-
         
 
 
-
-def insert_error(ip, user_id, version, error_msg, activity):
-
+def insert_error(ip, user_id, version, error_msg, activity, error_code, platform, platform_name):
     
     AllErrors.objects.create(
         ip=ip,
@@ -45,11 +42,12 @@ def insert_error(ip, user_id, version, error_msg, activity):
         user_id=user_id,
         activity = activity,
         version=version,
-        status = "approved",
-        time = timezone.now()
+        error_code = error_code,
+        platform=platform,
+        platform_name =platform_name,
         )
         
-    print("error inserted")
+    print("Error inserted: ", error_msg)
 
 
 
