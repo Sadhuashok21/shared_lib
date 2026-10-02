@@ -137,7 +137,7 @@ class BPImages(models.Model):
     image = models.CharField(max_length=70)
     bp = models.ForeignKey(
         BP,
-        db_column = "user_id",
+        db_column = "bp_id",
         on_delete = models.CASCADE,
         to_field='bp_id',
         related_name="bp_user_image",

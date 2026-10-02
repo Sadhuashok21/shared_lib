@@ -3,7 +3,6 @@ from shared_lib.sfs_core.models import *
 
 
 
-
 class TotalActivity(models.Model):
     ip = models.CharField(max_length=50)
     user = models.ForeignKey(
